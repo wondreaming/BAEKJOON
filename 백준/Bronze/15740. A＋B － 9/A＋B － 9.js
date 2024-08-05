@@ -1,3 +1,4 @@
-let [A, B] = require('fs').readFileSync('/dev/stdin').toString().trim().split(" ").map(Number);
+let [A, B] = require('fs').readFileSync('/dev/stdin').toString().trim().split(" ").map(BigInt);
 
-console.log(A + B)
+let result = (A + B).toString();
+console.log(result);
