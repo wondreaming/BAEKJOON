@@ -12,14 +12,12 @@ for (let i = 0; i < T; i++) {
   let arr = new Array(n).fill(0).map((value, index) => index + 1);
 
   for (let j = 0; j < k; j++) {
-    arr = arr.reduce((a, c) => {
-      let sum = a.length > 0 ? a[a.length - 1] + c : c;
-      a.push(sum);
-      return a;
-    }, []);
+    for (let idx = 1; idx < n; idx++) {
+      arr[idx] += arr[idx - 1];
+    }
   }
 
-  output.push(arr.at(-1));
+  output.push(arr[n - 1]);  // 최종 결과는 n호의 사람 수
 }
 
 console.log(output.join("\n"));
