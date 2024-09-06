@@ -6,18 +6,15 @@ let input = require("fs")
 
 let N = Number(input[0]);
 let person = input[1].split(" ").map(Number);
-let mins = new Array(N).fill(0);
 
 person.sort((a, b) => a - b);
 
-for (let i = 0; i < N; i++) {
-  let sum = 0;
-  for (let j = 0; j <= i; j++) {
-    sum += person[j];
-  }
-  mins[i] = sum;
-}
+let total = 0;
+let accumulatedSum = 0;
 
-let total = mins.reduce((a, c) => a + c);
+for (let i = 0; i < N; i++) {
+  accumulatedSum += person[i];
+  total += accumulatedSum;
+}
 
 console.log(total);
