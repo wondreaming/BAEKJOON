@@ -9,10 +9,9 @@ let nums = input[1].split(" ").map(Number);
 let result = [];
 
 let memo = [0];
-let sum = memo[0];
-for (let i = 0; i < N; i++) {
-  sum += nums[i];
-  memo.push(sum);
+
+for (let i = 1; i <= N; i++) {
+  memo.push(memo[i - 1] + nums[i - 1]);
 }
 
 for (let k = 2; k < 2 + M; k++) {
