@@ -1,7 +1,9 @@
 fun main() {
     val num = readln().trim().toInt()
 
-    for (i in 1..num) {
+    var i = 1
+    while (i <= num) {
         println(i)
+        i++
     }
 }
