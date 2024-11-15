@@ -1,13 +1,14 @@
 fun main() {
-    val input = mutableListOf<String>()
+    val result = mutableListOf<Int>()
 
     while (true) {
-        val line = readLine() ?: break
-        input.add(line)
+        val input = readlnOrNull()
+        if (input == null) break
+        if (input != null) {
+            val (A, B) = input.split(" ").map { it.toInt() }
+            result.add(A + B)
+        }
     }
 
-    for (i in 0..input.size - 1) {
-        val (A, B) = input[i].split(" ").map{ it.toInt() }
-        println(A + B)
-    }
+    println(result.joinToString("\n"))
 }
