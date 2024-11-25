@@ -1,16 +1,12 @@
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import kotlin.math.pow
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
     val L = readln().toInt()
     val str = readln()
-    val r = 31.0
+    val r = 31L
 
     var num = 1L
     var result = 0L
+    val M = 1234567891L
+    var currentR = 1L
 
     val alphabet = mutableMapOf<Char, Long>()
 
@@ -21,8 +17,8 @@ fun main() {
 
     for (idx in 0 until str.length) {
         val num1 = alphabet.getValue(str[idx])
-        val num2 = r.pow(idx).toLong()
-        result += num1 * num2
+        result = (result + num1 * currentR % M) % M
+        currentR = (currentR * r) % M
     }
     println(result)
 }
